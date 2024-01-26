@@ -1,0 +1,83 @@
+<div>
+    <div class="top-bar">
+        <div class="dashboard-logo-wrapper">
+            <%= image_tag('logo.png', alt: 'backgroundImage') %>
+        </div>
+        <div class="search-bar">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <p> Search Property,customer, etc</p>
+        </div>
+
+        <div class="user-profile-info">
+          <div class="notification-bar">
+            <i class="fa-regular fa-bell"></i>
+          </div>
+          <div class="profile-photo">
+            <img src="https://neweralive.na/storage/images/2023/may/lloyd-sikeba.jpg" alt="profile photo">
+          </div>
+          <div class="profile-details">
+             <h4>James Wainaina</h4>
+             <p> Owner</p>
+          </div>
+        </div>
+
+        
+    
+    </div>
+    <div class="dashboard-container">
+        <div class="side-bar">
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?(owner_dashboard_index_path) %>">
+                <i class="fa-solid fa-city"></i>
+                <p>Properties</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-users"></i>
+                <p>Tenants</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-money-bills"></i>
+                <p>Payments</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-clipboard"></i>
+                <p>Reports</p>
+            </a>
+        </div>
+        <div class ="main-section-dashboard">
+            <div class="main-section-dashboard-wrapper">
+                <div class="dashboard-wrapper-bar">
+                    <h2>
+                        My Property List
+                    </h2>
+                    <a href="/">+ Add Property</a>
+                </div>
+                <div class="main-property">
+                    <div class="dashboard-filters">
+                        <div class="search-bar-property">
+                            <div class="search-wrapper">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <p> search by property name</p>
+                        </div>
+                        <div class="search-bar-property-two">
+                            <p> fully occupied</p>
+                            <div class="search-wrapper">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="grid-container">
+                        <div class="property-card">
+                            <div class="property-photo">
+                                <img src="https://neweralive.na/storage/images/2023/may/lloyd-sikeba.jpg" alt="profile photo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
