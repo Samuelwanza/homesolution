@@ -6,6 +6,39 @@ class Owner::DashboardController < ApplicationController
       @properties = current_user.properties
       @user=current_user
     end
+
+    Here’s an example of how to use the Rails API to predict rent prices in Kigali for a two-bedroom house using the OpenAI API:
+
+
+    def predict_rent
+        openai_client = OpenAI::Client.new(
+            api_key: ENV['OPENAI_API_KEY'],
+        )
+
+        rental_listing = {
+            bedrooms: 2,
+            neighborhood: 'Nyarugenge',
+            condition: 'good',
+            furnishings: 'furnished',
+        }
+
+        rental_listing_json = rental_listing.to_json
+
+        response = openai_client.completions(
+            prompt: "What is the estimated rent for a two-bedroom house in Nyarugenge, Kigali, Rwanda with the following characteristics: #{rental_listing_json}",
+            max_tokens: 64,
+            temperature: 0.9,
+            top_p: 0.9,
+        )
+
+        predicted_rent = response.choices[0].text.split(' ')[-1]
+        predicted_rent = '%.2f' % predicted_rent
+        return predicted_rent
+    end
+
+
+
+
   
     private
   

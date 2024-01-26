@@ -44,6 +44,10 @@
                 <i class="fa-solid fa-clipboard"></i>
                 <p>Reports</p>
             </a>
+            <%= button_to destroy_user_session_path, method: :delete, class: "logout-link" do %>
+                <i class="fa-solid fa-sign-out"></i>
+                <p>Logout</p>
+            <% end %>
         </div>
         <div class ="main-section-dashboard">
             <div class="main-section-dashboard-wrapper">
