@@ -4,6 +4,7 @@ class Owner::DashboardController < ApplicationController
   
     def index
       @properties = current_user.properties
+      @user=current_user
     end
   
     private
