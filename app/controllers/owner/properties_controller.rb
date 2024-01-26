@@ -4,6 +4,7 @@ class Owner::PropertiesController < ApplicationController
   
     def new
       @property = Property.new
+      @user=current_user
     end
   
     def create
@@ -14,6 +15,18 @@ class Owner::PropertiesController < ApplicationController
       else
         render :new
       end
+    end
+
+    def show
+        @property = Property.find(params[:id])
+        @houses = @property.houses.includes(:tenant)
+        @user=current_user
+    end
+
+    def destroy
+        @property = Property.find(params[:id])
+        @property.destroy
+        redirect_to owner_dashboard_index_path, notice: 'Property was successfully deleted.'
     end
   
     private

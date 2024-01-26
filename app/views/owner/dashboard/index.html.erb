@@ -73,7 +73,7 @@
                         <% puts @properties%>
                         <% @properties.each do |property| %>
 
-                            <div class="property-card">
+                            <a href="<%= owner_property_path(property) %>" class="property-card">
                                 <div class="property-photo">
                                     <img src="<%=property.image_url%>" alt="profile photo">
                                 </div>
@@ -121,7 +121,7 @@
                                 </div>
 
 
-                            </div>
+                            </a>
                         <%end%>
                     </div>
                 </div>

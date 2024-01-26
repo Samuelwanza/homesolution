@@ -84,11 +84,9 @@
 
 .dashboard-container {
   display: flex;
-  border: 1px red solid;
 }
 
 .main-section-dashboard {
-  border: 1px solid blue;
   background: #f4f4f4;
   width: 100%;
   overflow-y: auto;
@@ -124,10 +122,8 @@
   margin-top: 15px;
   background: white;
   width: 100%;
-  border: 1px solid yellow;
   min-height: 70vh;
   border-radius: 3px;
-
 }
 
 .dashboard-filters {
@@ -170,9 +166,10 @@
 
 .property-card {
   width: 300px;
-
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: #11142d;
 }
 
 .property-photo > img {
@@ -190,13 +187,13 @@
   color: #11142d;
 }
 
-.property-location{
+.property-location {
   display: flex;
   gap: 5px;
   align-items: center;
 }
 
-.property-house-detail{
+.property-house-detail {
   display: flex;
   justify-content: space-between;
   align-items: center;
