@@ -7,9 +7,6 @@ class Owner::DashboardController < ApplicationController
       @user=current_user
     end
 
-    Here’s an example of how to use the Rails API to predict rent prices in Kigali for a two-bedroom house using the OpenAI API:
-
-
     def predict_rent
         openai_client = OpenAI::Client.new(
             api_key: ENV['OPENAI_API_KEY'],
