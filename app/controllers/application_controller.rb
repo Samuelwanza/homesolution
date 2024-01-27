@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
         when 'owner'
           owner_dashboard_index_path
         when 'tenant'
-          tenant_dashboard_index_path
+          owner_dashboard_index_path
         when 'admin'
           admin_dashboard_index_path
         else
