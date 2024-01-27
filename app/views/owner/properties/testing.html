@@ -1,0 +1,103 @@
+<div>
+    <div class="top-bar">
+        <div class="dashboard-logo-wrapper">
+            <%= image_tag('logo.png', alt: 'backgroundImage') %>
+        </div>
+        <div class="search-bar">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <p> Search Property,customer, etc</p>
+        </div>
+
+        <div class="user-profile-info">
+          <div class="notification-bar">
+            <i class="fa-regular fa-bell"></i>
+          </div>
+          <div class="profile-photo">
+            <img src="https://neweralive.na/storage/images/2023/may/lloyd-sikeba.jpg" alt="profile photo">
+          </div>
+          <div class="profile-details">
+             <h4><%=@user.name%></h4>
+             <p><%=@user.role%></p>
+          </div>
+        </div>
+
+        
+    
+    </div>
+    <div class="dashboard-container">
+        <div class="side-bar">
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?(owner_dashboard_index_path) %>">
+                <i class="fa-solid fa-city"></i>
+                <p>Properties</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-users"></i>
+                <p>Tenants</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-money-bills"></i>
+                <p>Payments</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-clipboard"></i>
+                <p>Reports</p>
+            </a>
+            <%= button_to destroy_user_session_path, method: :delete, class: "logout-link" do %>
+                <i class="fa-solid fa-sign-out"></i>
+                <p>Logout</p>
+            <% end %>
+        </div>
+        <div class ="main-section-dashboard">
+            <div class="main-section-dashboard-wrapper">
+                <div class="dashboard-wrapper-bar">
+                    <h2>
+                        Property Details
+                    </h2>
+                    <a href="<%=new_owner_property_path%>">+ Add Property</a>
+                </div>
+                <div class="main-property">
+                    <div class="property-details">
+                        <h2>Property Details</h2>
+                        <table class="property-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Location</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                        </tr>
+                        <tr>
+                            <td><%= @property.name %></td>
+                            <td><%= @property.description %></td>
+                            <td><%= @property.location_name %></td>
+                            <td><%= @property.latitude %></td>
+                            <td><%= @property.longitude %></td>
+                        </tr>
+                        </table>
+                    
+                        <h2>Houses in <%= @property.name %></h2>
+                        <table class="house-table">
+                        <tr>
+                            <th>House Name</th>
+                            <th>Description</th>
+                            <th>Tenant Name</th>
+                            <th>Rent Paid</th>
+                        </tr>
+                        <% @houses.each do |house| %>
+                            <tr>
+                            <td><%= house.name %></td>
+                            <td><%= house.description %></td>
+                            <td><%= house.tenant&.name || 'Vacant' %></td>
+                            <td><%= house.paid? ? 'Yes' : 'No' %></td>
+                            </tr>
+                        <% end %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
+

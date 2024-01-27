@@ -1,0 +1,24 @@
+.property-details {
+  margin: 20px;
+}
+
+.property-table,
+.house-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.property-table th,
+.house-table th,
+.property-table td,
+.house-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.property-table th,
+.house-table th {
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,135 @@
+<div>
+    <div class="top-bar">
+        <div class="dashboard-logo-wrapper">
+            <%= image_tag('logo.png', alt: 'backgroundImage') %>
+        </div>
+        <div class="search-bar">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <p> Search Property,customer, etc</p>
+        </div>
+
+        <div class="user-profile-info">
+          <div class="notification-bar">
+            <i class="fa-regular fa-bell"></i>
+          </div>
+          <div class="profile-photo">
+            <img src="https://neweralive.na/storage/images/2023/may/lloyd-sikeba.jpg" alt="profile photo">
+          </div>
+          <div class="profile-details">
+             <h4><%=@user.name%></h4>
+             <p><%=@user.role%></p>
+          </div>
+        </div>
+
+        
+    
+    </div>
+    <div class="dashboard-container">
+        <div class="side-bar">
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?(owner_dashboard_index_path) %>">
+                <i class="fa-solid fa-city"></i>
+                <p>Properties</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-users"></i>
+                <p>Tenants</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-money-bills"></i>
+                <p>Payments</p>
+            </a>
+            <a href="<%= owner_dashboard_index_path %>" class="<%= 'active' if current_page?("/") %>">
+                <i class="fa-solid fa-clipboard"></i>
+                <p>Reports</p>
+            </a>
+            <%= button_to destroy_user_session_path, method: :delete, class: "logout-link" do %>
+                <i class="fa-solid fa-sign-out"></i>
+                <p>Logout</p>
+            <% end %>
+        </div>
+        <div class ="main-section-dashboard">
+            <div class="main-section-dashboard-wrapper">
+                <div class="dashboard-wrapper-bar">
+                    <h2>
+                        My Property List
+                    </h2>
+                    <a href="<%=new_owner_property_path%>">+ Add Property</a>
+                </div>
+                <div class="main-property">
+                    <div class="dashboard-filters">
+                        <div class="search-bar-property">
+                            <div class="search-wrapper">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <p> search by property name</p>
+                        </div>
+                        <div class="search-bar-property-two">
+                            <p> fully occupied</p>
+                            <div class="search-wrapper">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="grid-container">
+                        <% puts @properties%>
+                        <% @properties.each do |property| %>
+
+                            <a href="<%= owner_property_path(property) %>" class="property-card">
+                                <div class="property-photo">
+                                    <img src="<%=property.image_url%>" alt="profile photo">
+                                </div>
+                                <div class="property-more-detail">
+                                    <div class="property-name">
+                                        <h3><%= property.name%></h3>
+                                    </div>
+                                    <div class="property-location">
+                                        <span><i class="fa-solid fa-location-dot"></i></span>
+                                        <p><%=property.location_name%>
+                                    </div>
+                                </div>
+                                <div class="property-house-detail">
+                                    <div class="property-house-number">
+                                        <i class="fa-regular fa-building"></i>
+                                        <span><%= property.houses.count %> Units</span>
+                                    </div>
+                                    <div class="property-house-occupied">
+                                        <i class="fa-regular fa-user"></i>
+                                        <span><%= property.houses.where(occupied: true).count %> Occupied</span>
+                                    </div>
+                                    <div class="property-house-vacant">
+                                        <i class="fa-regular fa-user"></i>
+                                        <span><%= property.houses.where(occupied: false).count %> Vacant</span>
+                                    </div>
+
+                                </div>
+                                <div class="property-revenue">
+                                    <div class="property-revenue-detail">
+                                        <div class="property-rent-collected">
+                                            <p> <%= number_to_currency(calculate_current_month_rent(property)) %></p>
+                                        </div>
+                                        <p>Amount Collected</p>
+                                    </div>
+                                    <div class="property-revenue-detail">
+                                        <div class="property-rent-collected">
+                                            <p> <%= number_to_percentage(calculate_percentage_collected(property), precision: 2) %></p>
+                                        </div>
+                                        <p>Percentage collection</p>
+                                    </div>
+                                    <div class ="property-crud-icons">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                </div>
+
+
+                            </a>
+                        <%end%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
