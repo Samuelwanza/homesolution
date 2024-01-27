@@ -1,0 +1,42 @@
+
+<div>
+  <header>
+    <nav class="navbar">
+      
+      <%= image_tag('logo.png', alt: 'EstatePro Logo', class: 'logo') %>
+      
+      <!-- Navigation links on the right -->
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Onboard Now</a>
+        <a href="<%=new_user_session_path%>">Login</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="hero-section">
+    
+    <h2>Welcome to EstatePro</h2>
+    <p>Your one-stop solution for property owners and tenants.</p>
+    <a href="#" class="cta-button">Onboard Now</a>
+  </div>
+
+  <div class="main-content">
+    <section class="owners-message">
+      <h2>For Property Owners</h2>
+      <p>Maximize your property's potential with our professional management services. Join us and experience hassle-free property management.</p>
+    </section>
+
+    <section class="tenants-message">
+      <h2>For Tenants</h2>
+      <p>Find your dream home with us. Explore our available properties and enjoy a seamless renting experience.</p>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <%= image_tag('logo.png', alt: 'EstatePro Logo', class: 'footer-logo') %>
+    &copy; 2024 Estate. All rights reserved.
+  </footer>
+</div>
